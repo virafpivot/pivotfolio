@@ -1,0 +1,748 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PivotFolio | Financial Guidance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <img src="Pivot Folio LOGO.png" alt="PivotFolio logo" class="brand__logo" />
+      </div>
+      <nav class="nav">
+        <a href="#why-us">Why Us?</a>
+        <a href="#about">About</a>
+        <div class="nav__item nav__services">
+          <button class="nav__services-toggle" type="button" aria-expanded="false">
+            Services
+            <span class="nav__caret">▾</span>
+          </button>
+          <div class="nav__dropdown" role="menu">
+            <a href="#retirement-planner" role="menuitem">Retirement Planner</a>
+            <a href="#goal-planner" role="menuitem">Goal Planner</a>
+            <a href="#insurance-planner" role="menuitem">Insurance Planner</a>
+            <a href="#personal-financial-statement" role="menuitem">Personal Financial Statement</a>
+          </div>
+        </div>
+        <a href="#contact-us">Contact Us</a>
+        <a href="#signup" class="nav__cta">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container wide hero__inner">
+        <div class="hero__visual">
+          <img src="Happy Couple Sitting.png" alt="Happy couple sitting together" class="hero__image" />
+        </div>
+        <p class="hero__quote">"At PivotFolio, we don't just calculate your net worth. We calculate your freedom."</p>
+      </div>
+    </section>
+
+    <section id="why-us" class="section">
+      <div class="container section__header">
+        <div>
+          <h2>Why PivotFolio</h2>
+          <p class="text">
+            Wealth management is not just about money, but about making thoughtful decisions that bring stability, confidence, and peace of mind over time.
+            Having a clear understanding of your finances helps you stay prepared for life's uncertainties and make choices that support long term goals rather than short-term reactions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section muted">
+      <div class="container section__header">
+        <div>
+          <h2>About PivotFolio</h2>
+          <p class="text">
+            PivotFolio is a personal finance and wealth-planning platform created to simplify how individuals and families think about money. The idea behind this platform is to bring clarity to topics like retirement planning, insurance decisions, and long-term investing in a way that is practical, calm, and easy to understand.
+          </p>
+          <p class="text">
+            This initiative is created and maintained by Viraf F. Motafram, with a strong interest in finance, wealth management, and structured financial planning. The content and tools on this website are designed for educational and informational purposes only, to help users better understand financial concepts and make more informed decisions. PivotFolio does not provide personalized investment advice, recommendations, or guaranteed outcomes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div id="retirement-planner"></div>
+    <section class="section calc" id="contact">
+      <div class="container calc__inner">
+        <div class="calc__header">
+          <p class="eyebrow">Retirement Planning</p>
+          <h2>Retirement Calculator</h2>
+          <p class="text full-line">A retirement calculator helps you understand how much money you will need in the future and how much you must save today to live comfortably after retirement.</p>
+        </div>
+        <div class="calc__grid">
+          <div class="calc__form">
+            <label>Monthly Salary (INR)
+              <input type="number" id="takeHome" min="0" step="1000" />
+            </label>
+            <label>Expenditure (%)
+              <input type="number" id="expenseRatio" min="0" max="100" step="1"  />
+            </label>
+            <label>Current Age (years)
+              <input type="number" id="currentAge" min="0" step="1" />
+            </label>
+            <label> Age you will Retire (years)
+              <input type="number" id="retireAge" min="0" step="1" />
+            </label>
+            <label>Expected Inflation (%)
+              <input type="number" id="inflation" min="0" step="0.1"  />
+              <small class="field-hint">India's annual inflation rate is between 4% to 5%.</small>
+            </label>
+            <label>Life Expectancy (years)
+              <input type="number" id="lifeExpectancy" min="0" step="1" />
+            </label>
+            <label>Rate of Return on Corpus (%)
+              <input type="number" id="rorCorpus" min="0" step="0.1"  />
+              <small class="field-hint">This is the return you expect on your retirement money after you retire, while you’re using that corpus.</small>
+            </label>
+            <label>Expected Return where savings will be invested (%)
+              <input type="number" id="savingsReturn" min="0" step="0.1"  />
+              <small class="field-hint">This is the return you expect on your investments before you retire, while you’re still saving and growing your money.</small>
+            </label>
+            <button class="button calc__button" id="calcButton" type="button">Calculate</button>
+          </div>
+          <div class="calc__results">
+            <div class="result-block">
+              <div class="result-title">Income needs</div>
+              <div class="result-line"><span>Current monthly expense</span><strong id="resExpense">Rs.0</strong></div>
+              <div class="result-line"><span>Years to retire</span><strong id="resYearsToRetire">0</strong></div>
+              <div class="result-line"><span>Monthly income required at retirement</span><strong id="resIncomeRet">Rs.0</strong></div>
+            </div>
+            <div class="result-block">
+              <div class="result-title">Corpus</div>
+              <div class="result-line"><span>Retirement period (years)</span><strong id="resRetPeriod">0</strong></div>
+              <div class="result-line"><span>Real annual return</span><strong id="resRealAnnual">0%</strong></div>
+              <div class="result-line"><span>Real monthly return</span><strong id="resRealMonthly">0%</strong></div>
+              <div class="result-line"><span>Retirement corpus needed</span><strong id="resCorpus">Rs.0</strong></div>
+              <p class="helper-note"><em>Corpus amount is the total money you build over time to use for your expenses after you retire when you have no income.</em></p>
+            </div>
+            <div class="result-block">
+              <div class="result-title">Monthly savings</div>
+              <div class="result-line"><span>Months to retire</span><strong id="resMonthsToRetire">0</strong></div>
+              <div class="result-line"><span>Monthly savings return</span><strong id="resSaveReturn">0%</strong></div>
+              <div class="result-line"><span>Monthly savings required</span><strong id="resMonthlySave">Rs.0</strong></div>
+            </div>
+            <p class="calc__disclaimer">This tool is for educational purposes only and does not constitute advice. Please verify assumptions before making decisions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="goal-planner"></div>
+    <section class="section goals" id="goals">
+      <div class="container goals__inner">
+        <div class="goals__header">
+          <p class="eyebrow">Goals</p>
+          <h2>Goal Planner</h2>
+          <p class="text full-line">Plan how much to save each month for future goals by accounting for inflation, time horizon, and expected returns.</p>
+        </div>
+        <div class="goals__row">
+          <div class="goal-field">
+            <label>Goal</label>
+            <select id="goalSelect">
+              <option value="Child Education">Child Education</option>
+              <option value="Marriage">Marriage</option>
+              <option value="Buy a House">Buy a House</option>
+              <option value="Car Purchase">Car Purchase</option>
+              <option value="Vacation / Travel">Vacation / Travel</option>
+              <option value="Emergency Fund">Emergency Fund</option>
+              <option value="Medical / Health">Medical / Health</option>
+              <option value="Start a Business">Start a Business</option>
+              <option value="Gadgets / Lifestyle Goal">Gadgets / Lifestyle Goal</option>
+            </select>
+          </div>
+          <div class="goal-field">
+            <label>Amount Needed in Future (Rs.)</label>
+            <input type="number" id="goalFutureAmount" min="0" step="10000" />
+          </div>
+          <div class="goal-field">
+            <label>Goal Inflation (%/yr)</label>
+            <input type="number" id="goalInflation" min="0" step="0.1" />
+          </div>
+          <div class="goal-field">
+            <label>Years to Goal</label>
+            <input type="number" id="goalYears" min="0" step="0.5" />
+          </div>
+          <div class="goal-field readonly span2">
+            <label>Present Value Today (Rs.)</label>
+            <input type="text" id="goalPV" readonly />
+          </div>
+          <div class="goal-field">
+            <label>Return While Investing (%/yr)</label>
+            <input type="number" id="goalReturn" min="0" step="0.1" />
+          </div>
+          <div class="goal-field readonly span2">
+            <label>Assumed Monthly Investment Needed (Rs./month)</label>
+            <input type="text" id="goalMonthly" readonly />
+          </div>
+          <div class="goal-actions span2">
+            <button class="button" id="goalCalc" type="button">Calculate</button>
+            <button class="button ghost" id="goalReset" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="goals__notes">
+          <p class="text">We inflate the goal amount to the future date, discount it back to today, and size a monthly investment using your expected return.</p>
+          <p class="text">Monthly investment is the amount to invest at the end of each month to reach the target future value.</p>
+          <p class="text small">Goal Inflation (%) reflects rising costs for that goal, while Return While Investing (%) is what you expect to earn on your investments.</p>
+          <p class="text small">Note: Inflation per goal can change based on market conditions and your preference.</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="insurance-planner"></div>
+    <section class="section insurance" id="insurance">
+      <div class="container insurance__inner">
+        <div class="insurance__header">
+          <p class="eyebrow">Insurance Planner</p>
+          <h2>Insurance Cover Calculator</h2>
+          <p class="text full-line">An insurance planner helps protect you and your family from unexpected financial losses by ensuring the right coverage at the right time.</p>
+        </div>
+        <div class="insurance__grid">
+          <div class="insurance__form">
+            <label>Current Age (years)
+              <input type="number" id="insCurrentAge" min="0" step="1" />
+            </label>
+            <label>Retirement Age (years)
+              <input type="number" id="insRetireAge" min="0" step="1" />
+            </label>
+            <label>Annual Income (Rs.)
+              <input type="number" id="insNetIncome" min="0" step="10000" />
+            </label>
+            <label>Return You Expect on Invested Money (%)
+              <input type="number" id="insReturn" min="0" max="30" step="0.1" />
+            </label>
+            <label>Expected Inflation (%)
+              <input type="number" id="insInflation" min="0" max="30" step="0.1" />
+              <small class="field-hint">India’s annual inflation rate typically ranges between 4% to 5%.</small>
+            </label>
+            <label>Existing Insurance Cover (Rs.)
+              <input type="number" id="insExisting" min="0" step="50000" />
+            </label>
+            <button class="button insurance__button" id="insCalcButton" type="button">Calculate</button>
+          </div>
+          <div class="insurance__results">
+            <div class="ins-card">
+              <div class="ins-label">Years to Retirement</div>
+              <div class="ins-value" id="insYears">0</div>
+            </div>
+            <div class="ins-card">
+              <div class="ins-label">Real Return (annual)</div>
+              <div class="ins-value" id="insRealReturn">0.00%</div>
+            </div>
+            <div class="ins-card">
+              <div class="ins-label">Life Cover Needed Today</div>
+              <div class="ins-value" id="insCover">Rs.0</div>
+            </div>
+            <div class="ins-card">
+              <div class="ins-label">Additional Cover Needed</div>
+              <div class="ins-value" id="insAdditional">Rs.0</div>
+            </div>
+            <p class="ins-disclaimer">Educational purposes only. Not financial advice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="personal-financial-statement"></div>
+    <section class="section pfs" id="personal-financial">
+      <div class="container pfs__inner">
+        <div class="pfs__header">
+          <p class="eyebrow">Planning</p>
+          <h2>Personal Financial Statement</h2>
+          <p class="text full-line">Capture income, expenses, surplus, and net worth in a clear two-column snapshot.</p>
+        </div>
+        <div class="pfs__grid">
+          <div class="pfs__col">
+            <div class="pfs-card">
+              <div class="pfs-card__title">Income</div>
+              <div class="pfs-fields two-col">
+                <label>Salary (Take-home)<input class="pf-input" id="pfSalary" type="number" min="0" step="1000"></label>
+                <label>Variable Pay / Bonus<input class="pf-input" id="pfBonus" type="number" min="0" step="1000"></label>
+                <label>Interest from FDs / RDs<input class="pf-input" id="pfInterest" type="number" min="0" step="500"></label>
+                <label>Dividends from Equity MFs / Stocks<input class="pf-input" id="pfDividends" type="number" min="0" step="500"></label>
+                <label>Rental Income<input class="pf-input" id="pfRental" type="number" min="0" step="1000"></label>
+                <label>Income from Investments<input class="pf-input" id="pfInvestIncome" type="number" min="0" step="500"></label>
+                <label>Misc Earnings<input class="pf-input" id="pfMiscIncome" type="number" min="0" step="500"></label>
+              </div>
+              <div class="pfs-total"><span>Total Income</span><strong id="pfTotalIncome">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Household &amp; Living</div>
+              <div class="pfs-fields two-col">
+                <label>Society Maintenance Charges<input class="pf-input" id="pfSociety" type="number" min="0" step="500"></label>
+                <label>Groceries &amp; Daily Essentials<input class="pf-input" id="pfGroceries" type="number" min="0" step="500"></label>
+                <label>OTT<input class="pf-input" id="pfOTT" type="number" min="0" step="100"></label>
+                <label>Cook / Driver<input class="pf-input" id="pfHelp" type="number" min="0" step="500"></label>
+                <label>Home Repairs<input class="pf-input" id="pfRepairs" type="number" min="0" step="500"></label>
+                <label>Rent<input class="pf-input" id="pfRent" type="number" min="0" step="1000"></label>
+                <label>Utilities (Electricity, Water, Gas)<input class="pf-input" id="pfUtilities" type="number" min="0" step="200"></label>
+                <label>Mobile &amp; Internet<input class="pf-input" id="pfMobile" type="number" min="0" step="200"></label>
+              </div>
+              <div class="pfs-total"><span>Household &amp; Living Total</span><strong id="pfHouseholdTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Personal &amp; Family</div>
+              <div class="pfs-fields two-col">
+                <label>Clothing &amp; Footwear<input class="pf-input" id="pfClothing" type="number" min="0" step="200"></label>
+                <label>Personal Care<input class="pf-input" id="pfPersonalCare" type="number" min="0" step="200"></label>
+                <label>Gym<input class="pf-input" id="pfGym" type="number" min="0" step="200"></label>
+                <label>Insurance<input class="pf-input" id="pfInsurance" type="number" min="0" step="200"></label>
+                <label>Elderly Parent Care<input class="pf-input" id="pfParents" type="number" min="0" step="200"></label>
+                <label>Children Expenses<input class="pf-input" id="pfChildren" type="number" min="0" step="200"></label>
+              </div>
+              <div class="pfs-total"><span>Personal &amp; Family Total</span><strong id="pfPersonalTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Loan EMIs</div>
+              <div class="pfs-fields two-col">
+                <label>Home Loan EMI<input class="pf-input" id="pfHomeLoan" type="number" min="0" step="500"></label>
+                <label>Bike Loan EMI<input class="pf-input" id="pfBikeLoan" type="number" min="0" step="200"></label>
+                <label>Car Loan EMI<input class="pf-input" id="pfCarLoan" type="number" min="0" step="500"></label>
+                <label>Personal Loan EMI<input class="pf-input" id="pfPersonalLoan" type="number" min="0" step="500"></label>
+                <label>Credit Card Bills<input class="pf-input" id="pfCardBills" type="number" min="0" step="200"></label>
+                <label>Education Loan EMI<input class="pf-input" id="pfEduLoan" type="number" min="0" step="500"></label>
+              </div>
+              <div class="pfs-total"><span>Loan EMI Total</span><strong id="pfLoanTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Lifestyle &amp; Discretionary</div>
+              <div class="pfs-fields two-col">
+                <label>Daily Food<input class="pf-input" id="pfDailyFood" type="number" min="0" step="200"></label>
+                <label>Shopping<input class="pf-input" id="pfShopping" type="number" min="0" step="200"></label>
+                <label>Pet Care Expenses<input class="pf-input" id="pfPet" type="number" min="0" step="200"></label>
+                <label>Social Events<input class="pf-input" id="pfSocial" type="number" min="0" step="200"></label>
+                <label>Entertainment<input class="pf-input" id="pfEntertainment" type="number" min="0" step="200"></label>
+                <label>Other Discretionary<input class="pf-input" id="pfOtherDisc" type="number" min="0" step="200"></label>
+              </div>
+              <div class="pfs-total"><span>Lifestyle Total</span><strong id="pfLifestyleTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Annual Obligations / Misc</div>
+              <div class="pfs-fields two-col">
+                <label>Annual / Misc Item 1<input class="pf-input" id="pfAnnual1" type="number" min="0" step="500"></label>
+                <label>Annual / Misc Item 2<input class="pf-input" id="pfAnnual2" type="number" min="0" step="500"></label>
+              </div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Investments</div>
+              <div class="pfs-fields two-col">
+                <label>SIPs (Equity / Hybrid / Debt)<input class="pf-input" id="pfSIP" type="number" min="0" step="500"></label>
+                <label>Recurring Deposits<input class="pf-input" id="pfRD" type="number" min="0" step="500"></label>
+                <label>PPF Monthly Contribution<input class="pf-input" id="pfPPF" type="number" min="0" step="200"></label>
+                <label>NPS Tier 1 / Tier 2<input class="pf-input" id="pfNPS" type="number" min="0" step="200"></label>
+                <label>ULIP Premium<input class="pf-input" id="pfULIP" type="number" min="0" step="200"></label>
+                <label>Gold Purchase (Monthly Average)<input class="pf-input" id="pfGoldInvest" type="number" min="0" step="200"></label>
+              </div>
+              <div class="pfs-total"><span>Investment Total</span><strong id="pfInvestTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-total"><span class="big">Total Expenses</span><strong id="pfTotalExpenses" class="big">Rs.0</strong></div>
+              <div class="pfs-total highlight"><span class="big">Annual Surplus</span><strong id="pfSurplus" class="big">Rs.0</strong></div>
+              <p class="field-hint">Surplus transferred to Balance Sheet.</p>
+            </div>
+          </div>
+
+          <div class="pfs__col">
+            <div class="pfs-card">
+              <div class="pfs-card__title">Financial Assets</div>
+              <div class="pfs-fields two-col">
+                <label>Savings Bank Account<input class="pf-input" id="pfSavAcc" type="number" min="0" step="500"></label>
+                <label>Fixed Deposits (FDs)<input class="pf-input" id="pfFD" type="number" min="0" step="500"></label>
+                <label>Public Provident Fund (PPF)<input class="pf-input" id="pfAssetPPF" type="number" min="0" step="500"></label>
+                <label>Employees’ Provident Fund (EPF)<input class="pf-input" id="pfEPF" type="number" min="0" step="500"></label>
+                <label>National Pension Scheme (NPS)<input class="pf-input" id="pfAssetNPS" type="number" min="0" step="500"></label>
+                <label>Mutual Funds<input class="pf-input" id="pfMF" type="number" min="0" step="500"></label>
+                <label>Annual Surplus (auto-filled)<input class="pf-input" id="pfSurplusAsset" type="number" readonly></label>
+              </div>
+              <div class="pfs-total"><span>Total Financial Assets</span><strong id="pfFinTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Physical / Real Assets</div>
+              <div class="pfs-fields two-col">
+                <label>Residential House<input class="pf-input" id="pfResHouse" type="number" min="0" step="10000"></label>
+                <label>Commercial Property<input class="pf-input" id="pfCommProp" type="number" min="0" step="10000"></label>
+                <label>Jewellery<input class="pf-input" id="pfJewellery" type="number" min="0" step="1000"></label>
+                <label>Gold<input class="pf-input" id="pfGold" type="number" min="0" step="1000"></label>
+                <label>Cars<input class="pf-input" id="pfCars" type="number" min="0" step="10000"></label>
+              </div>
+              <div class="pfs-total"><span>Total Physical Assets</span><strong id="pfPhysTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card summary">
+              <div class="pfs-total"><span class="big">Total Assets</span><strong id="pfTotalAssets" class="big">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card">
+              <div class="pfs-card__title">Liabilities</div>
+              <div class="pfs-fields two-col">
+                <label>Education Loan<input class="pf-input" id="pfLiabEdu" type="number" min="0" step="500"></label>
+                <label>Personal Loan<input class="pf-input" id="pfLiabPersonal" type="number" min="0" step="500"></label>
+                <label>Business Loan<input class="pf-input" id="pfLiabBusiness" type="number" min="0" step="500"></label>
+                <label>Family Borrowings<input class="pf-input" id="pfLiabFamily" type="number" min="0" step="500"></label>
+                <label>Credit Card Dues<input class="pf-input" id="pfLiabCard" type="number" min="0" step="500"></label>
+              </div>
+              <div class="pfs-total"><span>Total Liabilities</span><strong id="pfLiabTotal">Rs.0</strong></div>
+            </div>
+
+            <div class="pfs-card highlight summary">
+              <div class="pfs-total"><span class="big">Net Worth (Assets − Liabilities)</span><strong id="pfNetWorth" class="big">Rs.0</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact-us">
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <h3>PivotFolio</h3>
+        <p class="footer__tagline">Calm, client-first wealth guidance.</p>
+        <p class="footer__disclaimer">For informational purposes only. Not an offer to sell or a solicitation of an offer to buy any security.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="#why-us">Why Us</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact-us">Contact Us</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contact us</h4>
+        <a href="tel:+917506609209">+91 7506609209</a>
+        <a href="mailto:virafmotafram@gmail.com">virafmotafram@gmail.com</a>
+        <a href="#contact">Schedule a call</a>
+      </div>
+    </div>
+</footer>
+<script>
+  (function() {
+    const fmtMoney = (v) => {
+      if (!isFinite(v)) return "Rs.0";
+      return "Rs." + Math.round(v).toLocaleString("en-IN");
+    };
+    const fmtPct = (v) => `${(v * 100).toFixed(2)}%`;
+
+    // Retirement calculator
+    const ids = ['takeHome','expenseRatio','currentAge','retireAge','inflation','lifeExpectancy','rorCorpus','savingsReturn'];
+    const inputs = {};
+    ids.forEach(id => inputs[id] = document.getElementById(id));
+    const btn = document.getElementById('calcButton');
+
+    const res = {
+      expense: document.getElementById('resExpense'),
+      yearsToRetire: document.getElementById('resYearsToRetire'),
+      incomeRet: document.getElementById('resIncomeRet'),
+      retPeriod: document.getElementById('resRetPeriod'),
+      realAnnual: document.getElementById('resRealAnnual'),
+      realMonthly: document.getElementById('resRealMonthly'),
+      corpus: document.getElementById('resCorpus'),
+      monthsToRetire: document.getElementById('resMonthsToRetire'),
+      saveReturn: document.getElementById('resSaveReturn'),
+      monthlySave: document.getElementById('resMonthlySave')
+    };
+
+    function calculate() {
+      const takeHome = Number(inputs.takeHome.value) || 0;
+      const expRatio = (Number(inputs.expenseRatio.value) || 0) / 100;
+      const curAge = Number(inputs.currentAge.value) || 0;
+      const retAge = Number(inputs.retireAge.value) || 0;
+      const infl = (Number(inputs.inflation.value) || 0) / 100;
+      const life = Number(inputs.lifeExpectancy.value) || 0;
+      const rorCorpus = (Number(inputs.rorCorpus.value) || 0) / 100;
+      const saveReturn = (Number(inputs.savingsReturn.value) || 0) / 100;
+
+      if (retAge <= curAge || life <= retAge || takeHome < 0 || expRatio < 0 || infl < 0 || rorCorpus < 0 || saveReturn < 0) {
+        res.expense.textContent = 'Rs.0';
+        res.yearsToRetire.textContent = '0';
+        res.incomeRet.textContent = 'Rs.0';
+        res.retPeriod.textContent = '0';
+        res.realAnnual.textContent = '0%';
+        res.realMonthly.textContent = '0%';
+        res.corpus.textContent = 'Rs.0';
+        res.monthsToRetire.textContent = '0';
+        res.saveReturn.textContent = '0%';
+        res.monthlySave.textContent = 'Rs.0';
+        return;
+      }
+
+      const currentExpense = takeHome * expRatio;
+      const yearsToRetire = retAge - curAge;
+      const monthlyIncomeRequired = currentExpense * Math.pow(1 + infl, yearsToRetire);
+
+      const retPeriodYears = life - retAge;
+      const realAnnual = ((1 + rorCorpus) / (1 + infl)) - 1;
+      const realMonthly = Math.pow(1 + realAnnual, 1 / 12) - 1;
+      const nMonths = retPeriodYears * 12;
+      const corpus = realMonthly === 0
+        ? monthlyIncomeRequired * nMonths
+        : monthlyIncomeRequired * (1 - Math.pow(1 + realMonthly, -nMonths)) / realMonthly;
+
+      const saveMonthly = Math.pow(1 + saveReturn, 1 / 12) - 1;
+      const monthsToRetire = yearsToRetire * 12;
+      const monthlySave = saveMonthly === 0
+        ? corpus / monthsToRetire
+        : corpus * saveMonthly / (Math.pow(1 + saveMonthly, monthsToRetire) - 1);
+
+      res.expense.textContent = fmtMoney(currentExpense);
+      res.yearsToRetire.textContent = yearsToRetire.toString();
+      res.incomeRet.textContent = fmtMoney(monthlyIncomeRequired);
+      res.retPeriod.textContent = retPeriodYears.toString();
+      res.realAnnual.textContent = fmtPct(realAnnual);
+      res.realMonthly.textContent = fmtPct(realMonthly);
+      res.corpus.textContent = fmtMoney(corpus);
+      res.monthsToRetire.textContent = monthsToRetire.toString();
+      res.saveReturn.textContent = fmtPct(saveMonthly);
+      res.monthlySave.textContent = fmtMoney(monthlySave);
+    }
+
+    btn.addEventListener('click', calculate);
+    Object.values(inputs).forEach(inp => inp.addEventListener('input', calculate));
+
+    // Insurance calculator
+    const insInputs = {
+      cur: document.getElementById('insCurrentAge'),
+      ret: document.getElementById('insRetireAge'),
+      income: document.getElementById('insNetIncome'),
+      retRate: document.getElementById('insReturn'),
+      infl: document.getElementById('insInflation'),
+      existing: document.getElementById('insExisting'),
+    };
+    const insRes = {
+      years: document.getElementById('insYears'),
+      real: document.getElementById('insRealReturn'),
+      cover: document.getElementById('insCover'),
+      addl: document.getElementById('insAdditional'),
+    };
+    const insBtn = document.getElementById('insCalcButton');
+
+    function calculateInsuranceCover() {
+      const cur = Number(insInputs.cur.value) || 0;
+      const ret = Number(insInputs.ret.value) || 0;
+      const income = Number(insInputs.income.value) || 0;
+      const retRate = (Number(insInputs.retRate.value) || 0) / 100;
+      const infl = (Number(insInputs.infl.value) || 0) / 100;
+      const existing = Number(insInputs.existing.value) || 0;
+
+      const validPerc = (v) => v >= 0 && v <= 0.3;
+      if (ret <= cur || income < 0 || existing < 0 || !validPerc(retRate) || !validPerc(infl)) {
+        insRes.years.textContent = '0';
+        insRes.real.textContent = '0.00%';
+        insRes.cover.textContent = fmtMoney(0);
+        insRes.addl.textContent = fmtMoney(0);
+        return;
+      }
+
+      const n = ret - cur;
+      const real = (1 + retRate) / (1 + infl) - 1;
+      // Annuity due (beginning-of-year income replacement) to match standard insurance HLV calculations.
+      const coverNeeded = Math.abs(real) < 1e-9
+        ? income * n
+        : income * (1 - Math.pow(1 + real, -n)) / real * (1 + real);
+      const additional = Math.max(0, coverNeeded - existing);
+
+      console.debug('Insurance calc', { n, real, coverNeeded });
+      insRes.years.textContent = n.toString();
+      insRes.real.textContent = fmtPct(real);
+      insRes.cover.textContent = fmtMoney(coverNeeded);
+      insRes.addl.textContent = fmtMoney(additional);
+    }
+
+    insBtn.addEventListener('click', calculateInsuranceCover);
+    Object.values(insInputs).forEach(inp => inp.addEventListener('input', calculateInsuranceCover));
+
+    // Goal planner
+    const goalDefaults = {
+      "Child Education": 6,
+      "Marriage": 5.7,
+      "Buy a House": 5.7,
+      "Car Purchase": 5.7,
+      "Vacation / Travel": 5.7,
+      "Emergency Fund": 5.7,
+      "Medical / Health": 4.3,
+      "Start a Business": 5.7,
+      "Gadgets / Lifestyle Goal": 5.7
+    };
+    const goalSelect = document.getElementById('goalSelect');
+    const goalInflation = document.getElementById('goalInflation');
+    const goalFuture = document.getElementById('goalFutureAmount');
+    const goalYears = document.getElementById('goalYears');
+    const goalReturn = document.getElementById('goalReturn');
+    const goalPV = document.getElementById('goalPV');
+    const goalMonthly = document.getElementById('goalMonthly');
+    const goalCalc = document.getElementById('goalCalc');
+    const goalReset = document.getElementById('goalReset');
+
+    function calcGoal() {
+      const future = Number(goalFuture.value) || 0;
+      const infl = (Number(goalInflation.value) || 0) / 100;
+      const yrs = Number(goalYears.value) || 0;
+      const ret = (Number(goalReturn.value) || 0) / 100;
+
+      const pv = yrs <= 0 ? future : future / Math.pow(1 + infl, yrs);
+      const monthlyRate = Math.pow(1 + ret, 1 / 12) - 1;
+      const months = yrs * 12;
+      const monthlyInvest = months <= 0 ? 0 : (monthlyRate === 0 ? future / months : future * monthlyRate / (Math.pow(1 + monthlyRate, months) - 1));
+
+      goalPV.value = fmtMoney(pv);
+      goalMonthly.value = fmtMoney(monthlyInvest);
+    }
+
+    goalSelect.addEventListener('change', () => {
+      const g = goalSelect.value;
+      if (goalDefaults[g] !== undefined) goalInflation.value = goalDefaults[g];
+      calcGoal();
+    });
+    [goalFuture, goalInflation, goalYears, goalReturn].forEach(el => el.addEventListener('input', calcGoal));
+    goalCalc.addEventListener('click', calcGoal);
+    goalReset.addEventListener('click', () => {
+      goalFuture.value = '';
+      goalYears.value = '';
+      goalReturn.value = '';
+      goalInflation.value = goalDefaults[goalSelect.value] ?? '';
+      goalPV.value = fmtMoney(0);
+      goalMonthly.value = fmtMoney(0);
+    });
+    goalInflation.value = goalDefaults[goalSelect.value] ?? '';
+    goalPV.value = fmtMoney(0);
+    goalMonthly.value = fmtMoney(0);
+
+    // Personal financial statement
+    const pfOutputs = {
+      totalIncome: document.getElementById('pfTotalIncome'),
+      household: document.getElementById('pfHouseholdTotal'),
+      personal: document.getElementById('pfPersonalTotal'),
+      loan: document.getElementById('pfLoanTotal'),
+      lifestyle: document.getElementById('pfLifestyleTotal'),
+      invest: document.getElementById('pfInvestTotal'),
+      totalExpenses: document.getElementById('pfTotalExpenses'),
+      surplus: document.getElementById('pfSurplus'),
+      finTotal: document.getElementById('pfFinTotal'),
+      physTotal: document.getElementById('pfPhysTotal'),
+      totalAssets: document.getElementById('pfTotalAssets'),
+      liabTotal: document.getElementById('pfLiabTotal'),
+      netWorth: document.getElementById('pfNetWorth'),
+    };
+    const pfSurplusAsset = document.getElementById('pfSurplusAsset');
+
+    const incomeIds = ['pfSalary','pfBonus','pfInterest','pfDividends','pfRental','pfInvestIncome','pfMiscIncome'];
+    const householdIds = ['pfSociety','pfGroceries','pfOTT','pfHelp','pfRepairs','pfRent','pfUtilities','pfMobile'];
+    const personalIds = ['pfClothing','pfPersonalCare','pfGym','pfInsurance','pfParents','pfChildren'];
+    const loanIds = ['pfHomeLoan','pfBikeLoan','pfCarLoan','pfPersonalLoan','pfCardBills','pfEduLoan'];
+    const lifestyleIds = ['pfDailyFood','pfShopping','pfPet','pfSocial','pfEntertainment','pfOtherDisc'];
+    const investIds = ['pfSIP','pfRD','pfPPF','pfNPS','pfULIP','pfGoldInvest'];
+    const financialIds = ['pfSavAcc','pfFD','pfAssetPPF','pfEPF','pfAssetNPS','pfMF'];
+    const physicalIds = ['pfResHouse','pfCommProp','pfJewellery','pfGold','pfCars'];
+    const liabilityIds = ['pfLiabEdu','pfLiabPersonal','pfLiabBusiness','pfLiabFamily','pfLiabCard'];
+    const allPfInputs = Array.from(document.querySelectorAll('.pf-input'));
+
+    const sumVals = (ids) => ids.reduce((acc, id) => acc + (Number(document.getElementById(id).value) || 0), 0);
+
+    function calcPFS() {
+      const incomeTotal = sumVals(incomeIds);
+      const householdTotal = sumVals(householdIds);
+      const personalTotal = sumVals(personalIds);
+      const loanTotal = sumVals(loanIds);
+      const lifestyleTotal = sumVals(lifestyleIds);
+      const investTotal = sumVals(investIds);
+      const annualOblig = (Number(document.getElementById('pfAnnual1').value) || 0) + (Number(document.getElementById('pfAnnual2').value) || 0);
+
+      const totalExpenses = householdTotal + personalTotal + loanTotal + lifestyleTotal + investTotal + annualOblig;
+      const surplus = incomeTotal - totalExpenses;
+
+      const surplusForAssets = Math.max(surplus, 0);
+      pfSurplusAsset.value = surplusForAssets;
+
+      const financialTotal = sumVals(financialIds) + surplusForAssets;
+      const physicalTotal = sumVals(physicalIds);
+      const totalAssets = financialTotal + physicalTotal;
+      const liabilityTotal = sumVals(liabilityIds);
+      const netWorth = totalAssets - liabilityTotal;
+
+      pfOutputs.totalIncome.textContent = fmtMoney(incomeTotal);
+      pfOutputs.household.textContent = fmtMoney(householdTotal);
+      pfOutputs.personal.textContent = fmtMoney(personalTotal);
+      pfOutputs.loan.textContent = fmtMoney(loanTotal);
+      pfOutputs.lifestyle.textContent = fmtMoney(lifestyleTotal);
+      pfOutputs.invest.textContent = fmtMoney(investTotal);
+      pfOutputs.totalExpenses.textContent = fmtMoney(totalExpenses);
+      pfOutputs.surplus.textContent = fmtMoney(surplus);
+      pfOutputs.finTotal.textContent = fmtMoney(financialTotal);
+      pfOutputs.physTotal.textContent = fmtMoney(physicalTotal);
+      pfOutputs.totalAssets.textContent = fmtMoney(totalAssets);
+      pfOutputs.liabTotal.textContent = fmtMoney(liabilityTotal);
+      pfOutputs.netWorth.textContent = fmtMoney(netWorth);
+    }
+
+    allPfInputs.forEach(el => el.addEventListener('input', calcPFS));
+    calcPFS();
+
+    // Services dropdown (hover + click)
+    const navServices = document.querySelector('.nav__services');
+    const navToggle = navServices?.querySelector('.nav__services-toggle');
+    const navDropdown = navServices?.querySelector('.nav__dropdown');
+    let hoverTimeout;
+
+    const openDropdown = () => {
+      if (!navServices) return;
+      navServices.classList.add('open');
+      navToggle?.setAttribute('aria-expanded', 'true');
+    };
+    const closeDropdown = () => {
+      if (!navServices) return;
+      navServices.classList.remove('open');
+      navToggle?.setAttribute('aria-expanded', 'false');
+    };
+    const toggleDropdown = () => {
+      if (!navServices) return;
+      if (navServices.classList.contains('open')) closeDropdown();
+      else openDropdown();
+    };
+
+    if (navServices && navToggle && navDropdown) {
+      navToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleDropdown();
+      });
+
+      navServices.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        openDropdown();
+      });
+      navServices.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(closeDropdown, 120);
+      });
+
+      navDropdown.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => closeDropdown());
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!navServices.contains(e.target)) closeDropdown();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDropdown();
+      });
+    }
+  })();
+</script>
+</body>
+</html>
